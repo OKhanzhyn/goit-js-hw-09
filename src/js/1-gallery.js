@@ -2,7 +2,7 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-import { images } from './gallery-items';
+import { images } from './gallery';
 
 console.log(images);
 
