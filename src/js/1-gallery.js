@@ -8,13 +8,13 @@ console.log(images);
 
 const gallaryList = document.querySelector('.gallery');
 const typset = images.map(({ preview, original, description }) => {
-    return `<li style="margin: 1px;" class="gallery__item">
+    return `<li class="gallery__item">
         <a class="gallery__link" href="${original}">
             <img
                 loading="lazy"
                 class="gallery__image"
                 src="${preview}"               
-                title = "${description}"
+                alt="${description}"
             />
         </a>
     </li>`;
@@ -22,9 +22,10 @@ const typset = images.map(({ preview, original, description }) => {
 
   gallaryList.innerHTML = typset;
   const lightbox = new SimpleLightbox('.gallery a', {
-  caption: true,
+//   caption: true,
   captionDelay: 250,
   fadeSpeed: 250,
-  captionSelector: "img",
-  captionData: "title",
-  captionPosition: "bottom",}); 
+//   captionSelector: "img",
+  captionsData: "alt",
+  captionPosition: "bottom",
+}); 

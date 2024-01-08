@@ -10,7 +10,7 @@ let userData = {};
 
 function saveInput(event) {
     
-    userData[event.target.name] = event.target.value;
+    userData[event.target.name] = event.target.value.trim();
     const savingData = JSON.stringify(userData);
     localStorage.setItem(LS_KEY, savingData);
     console.log(userData);
@@ -19,20 +19,20 @@ function saveInput(event) {
 
 function renderForm() {
     
-    const userDataFromLS = load(LS_KEY);
+    const loadFromLocalStorage = load(LS_KEY); 
     
-    if (!userDataFromLS) {
+    if (!loadFromLocalStorage) { 
       return;
     }
     
     const formElements = form.elements;
     
-    for (const key in userDataFromLS) {
-      if (userDataFromLS.hasOwnProperty(key)) {
-        formElements[key].value = userDataFromLS[key];
+    for (const key in loadFromLocalStorage) {
+      if (loadFromLocalStorage.hasOwnProperty(key)) { 
+        formElements[key].value = loadFromLocalStorage[key]; 
         
-        if (userDataFromLS[key]) {
-          userData[key] = userDataFromLS[key];
+        if (loadFromLocalStorage[key]) { 
+          userData[key] = loadFromLocalStorage[key]; 
         }
       }
     }
